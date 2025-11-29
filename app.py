@@ -51,22 +51,28 @@ def analyze(data: Symptom):
             print(f"[프롬프트 생성] AI 모델에 전달할 프롬프트 작성 중...")
             # Create a medical prompt for the Korean medical AI model
             prompt = f"""
-당신은 한국어로 응답하는 의료 내비게이션 AI입니다.
-당신의 역할은 사용자의 증상을 분석하여 가장 가능성이 높은 질환, 관련된 진료과, 그 이유, 그리고 응급 여부를 판단하는 것입니다.
+아래 증상과 전문과를 기반으로 JSON 하나만 생성하라.
 
-아래 형식(JSON)으로만 답변하세요.
-불필요한 문장, 설명, 코드 블록, 마크다운은 절대 포함하지 마세요.
+반드시 다음 5개의 key만 사용한다:
+- "estimated_disease"
+- "icd_10_code"
+- "specialty"
+- "reason"
+- "is_emergency"
 
-출력 형식:
-{{
-  "estimated_disease": "질병명",
-  "icd_10_code": "코드",
-  "specialty": "{dept}",
-  "reason": "이 진료과를 추천한 이유",
-  "is_emergency": true 또는 false
-}}
+규칙:
+1) JSON 앞뒤에 설명 금지. JSON만 출력.
+2) icd_10_code는 가장 가능성 높은 하나만. 모르면 "R69".
+3) reason은 2~3문장으로 의학적 근거 설명.
+4) is_emergency는 true/false로만.
+5) specialty는 입력값 그대로 사용.
 
-사용자 증상: "{symptom}"
+입력:
+증상: {symptom}
+specialty: {dept}
+
+위 정보를 기준으로 JSON만 출력하라.
+
     """
             print(f"\n{'─'*60}")
             print(f"[생성된 프롬프트]")
