@@ -108,6 +108,7 @@ def analyze(data: Symptom):
                     description = parsed.get("reason")
                     estimated_disease = parsed.get("estimated_disease")
                     icd_10_code = parsed.get("icd_10_code")
+                    is_emergency = parsed.get("is_emergency")
                     print("[Groq AI 분석 완료] JSON 파싱 성공")
                 except Exception as parse_err:
                     # JSON 형식이 아닐 경우 전체 텍스트를 설명으로 사용
@@ -132,6 +133,7 @@ def analyze(data: Symptom):
         "description": description,
         "estimated_disease": estimated_disease,
         "icd_10_code": icd_10_code,
+        "is_emergency": is_emergency
     }
 
     print(f"\n{'='*60}")
