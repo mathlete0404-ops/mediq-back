@@ -320,7 +320,7 @@ mediq-front/
 * Prettier
 * Tailwind CSS IntelliSense
 
-### Backend (Optional)
+### Backend (mediq-back)
 
 * Python
 * Pylance
