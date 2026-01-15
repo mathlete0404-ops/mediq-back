@@ -1,4 +1,4 @@
-# Front
+# Back
 
 ## Overview
 
@@ -179,7 +179,7 @@ MedIQ는 **증상 입력 → AI 분석 → 전문과 추천 → 병원 리스트
 
 MedIQ는 보안을 위해 모든 API Key를 환경 변수로 관리합니다.
 
-### Frontend (mediq-front)
+### Frontend (Optional)
 
 `mediq-front/.env.local` 파일을 생성한 뒤 아래와 같이 설정하세요.
 
@@ -246,7 +246,7 @@ http://localhost:3000
 
 ---
 
-## Run Backend (Optional)
+## Run Backend (mediq-back)
 
 AI 분석을 별도의 서버(Groq + FastAPI)로 분리해 사용하는 경우에만 필요합니다.
 
