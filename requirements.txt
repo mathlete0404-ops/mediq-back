@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pydantic
+pandas
+scikit-learn
+joblib
+python-dotenv
+groq
+
+# Only for app.py (local Hugging Face model); large downloads:
+# transformers
+# torch
