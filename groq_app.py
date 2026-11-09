@@ -52,6 +52,7 @@ def analyze(data: Symptom):
     description = None
     estimated_disease = None
     icd_10_code = None
+    is_emergency = None  # stays None when the model gives no answer (no key, error, bad JSON)
     try:
         print("[Groq AI 분석 시작] Groq LLM으로 증상 분석 중...")
         client = _get_groq_client()
